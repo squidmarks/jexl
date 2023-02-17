@@ -1,6 +1,11 @@
-# Jexl [![Build Status](https://travis-ci.org/TomFrost/Jexl.svg?branch=master)](https://travis-ci.org/TomFrost/Jexl)
+# Jexl
 
 Javascript Expression Language: Powerful context-based expression parser and evaluator
+
+This is forked from the original work by [Tom Frost](https://github.com/TomFrost/Jexl) due to
+the original repository suffering from lack of maintenance for 2 years at the time of this
+fork. No modifications have been made other than the change of a package.json in order to
+facilitate the publishing of a new release of already-included bug fixes.
 
 ## Quick start
 
@@ -465,3 +470,5 @@ Jexl is licensed under the MIT license. Please see `LICENSE.txt` for full detail
 Created by [Tom Shawver](https://github.com/TomFrost) in 2015 and contributed to by [these great people](https://github.com/TomFrost/Jexl/graphs/contributors).
 
 Jexl was originally created at [TechnologyAdvice](http://technologyadvice.com) in Nashville, TN.
+
+Forked by [Aaron Stephens of Firehammer Solutions](https://github.com/firehammersolutions) in 2023.
