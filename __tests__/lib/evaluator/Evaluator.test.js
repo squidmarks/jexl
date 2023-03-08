@@ -19,7 +19,7 @@ const toTree = (exp) => {
 
 describe('Evaluator', () => {
   it('evaluates using an alternative Promise class', () => {
-    const e = new Evaluator(grammar, null, null, PromiseSync)
+    const e = new Evaluator(grammar, null, null, null, PromiseSync)
     expect(e.eval(toTree('2 + 2'))).toHaveProperty('value', 4)
   })
   it('evaluates an arithmetic expression', async () => {
@@ -59,6 +59,20 @@ describe('Evaluator', () => {
     const g = { ...grammar, transforms: { half } }
     const e = new Evaluator(g, context)
     return expect(e.eval(toTree('foo|half + 3'))).resolves.toBe(8)
+  })
+  it('passes context to transforms', async () => {
+    const context = { foo: 10 }
+    const expression = {}
+    const fn = function (val) {
+      return this
+    }
+    const g = { ...grammar, transforms: { fn } }
+    const e = new Evaluator(g, context, expression)
+    return expect(e.eval(toTree('foo|fn'))).resolves.toMatchObject({
+      astNode: {},
+      context,
+      expression
+    })
   })
   it('filters arrays', async () => {
     const context = {
