@@ -77,12 +77,12 @@ describe('Lexer', () => {
   })
   describe('Tokens', () => {
     it('unquotes string elements', () => {
-      const tokens = inst.getTokens(['"foo \\"bar\\\\"'])
+      const tokens = inst.getTokens(['"foo \\"bar\\\\jump\\\\"'])
       expect(tokens).toEqual([
         {
           type: 'literal',
-          value: 'foo "bar\\',
-          raw: '"foo \\"bar\\\\"'
+          value: 'foo "bar\\jump\\',
+          raw: '"foo \\"bar\\\\jump\\\\"'
         }
       ])
     })
