@@ -110,6 +110,11 @@ describe('Evaluator', () => {
       context.foo.baz.bar
     )
   })
+  it('it does not throw an error when a field is selected on an undefined object', async () => {
+    const context = { foo: { baz: { bar: 'tek' } } }
+    const e = new Evaluator(grammar, context)
+    return expect(e.eval(toTree('fook["bar"]'))).resolves.toBe(undefined)
+  })
   it('throws when transform does not exist', async () => {
     const e = new Evaluator(grammar)
     return expect(e.eval(toTree('"hello"|world'))).rejects.toThrow(Error)
