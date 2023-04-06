@@ -103,6 +103,13 @@ describe('Evaluator', () => {
     const e = new Evaluator(grammar, context)
     return expect(e.eval(toTree('foo.bar[1].tek'))).resolves.toBe('baz')
   })
+  it('returns undefined if the array is undefined', async () => {
+    const context = {
+      foo: {}
+    }
+    const e = new Evaluator(grammar, context)
+    return expect(e.eval(toTree('foo.bar[1]'))).resolves.toBe(undefined)
+  })
   it('allows filters to select object properties', async () => {
     const context = { foo: { baz: { bar: 'tek' } } }
     const e = new Evaluator(grammar, context)

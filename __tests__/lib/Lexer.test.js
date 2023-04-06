@@ -49,6 +49,34 @@ describe('Lexer', () => {
       expect(elems).toHaveLength(1)
       expect(elems[0]).toEqual(str)
     })
+    it('supports escaped backslashes end of double-quoted strings', () => {
+      const str = '"foo\\\\"'
+      const elems = inst.getElements(str)
+      expect(elems).toHaveLength(1)
+      expect(elems[0]).toEqual(str)
+    })
+    it('supports escaped backslashes end of single-quoted strings', () => {
+      const str = "'foo\\\\'"
+      const elems = inst.getElements(str)
+      expect(elems).toHaveLength(1)
+      expect(elems[0]).toEqual(str)
+    })
+    it('supports escaped backslashes end of double-quoted strings followed by another double-quoted string', () => {
+      const str = '"foo\\\\" "bar"'
+      const elems = inst.getElements(str)
+      console.log(elems)
+      expect(elems).toHaveLength(3)
+      expect(elems[0]).toEqual('"foo\\\\"')
+      expect(elems[2]).toEqual('"bar"')
+    })
+    it('supports escaped backslashes end of single-quoted strings followed by another single-quoted string', () => {
+      const str = "'foo\\\\' 'bar'"
+      const elems = inst.getElements(str)
+      console.log(elems)
+      expect(elems).toHaveLength(3)
+      expect(elems[0]).toEqual("'foo\\\\'")
+      expect(elems[2]).toEqual("'bar'")
+    })
     it('counts an identifier as one element', () => {
       const str = 'alpha12345'
       const elems = inst.getElements(str)
