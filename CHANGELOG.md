@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [devel]
 
+### Fixed
+
+- Parsing of strings now properly handles escaped \ characters at the end of a
+  string instead of assuming every " or ' with a \ immediately before it is
+  escaped.
+
 ### Changed
 
 - Applying filters to undefined values now results in undefined instead of a
