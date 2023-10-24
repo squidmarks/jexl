@@ -6,6 +6,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Nothing Yet
 
+## [v1.3.0]
+
+### Changed
+
+- Added `toString` method on `Expression` to turn compiled expression AST back
+  into a parsable JEXL string.
+
 ## [v1.2.0]
 
 ### Fixed

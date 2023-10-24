@@ -6,6 +6,9 @@ This is forked from the original work by [Tom Frost](https://github.com/TomFrost
 the original repository suffering from lack of maintenance for 2 years at the time of this
 fork.
 
+Additional work from [Chetan Padia](https://github.com/chetbox/jexl-to-string) for conversion
+of compile expressions to string has also been incorporated.
+
 ## Quick start
 
 Use it with promises or synchronously:
