@@ -264,8 +264,8 @@ either the transformed value, or a Promise that resolves with the transformed
 value. Add them with `jexl.addTransform(name, function)`.
 
 ```javascript
-jexl.addTransform('split', (val, char) => val.split(char))
-jexl.addTransform('lower', (val) => val.toLowerCase())
+jexl.addTransform("split", (val, char) => val.split(char));
+jexl.addTransform("lower", (val) => val.toLowerCase());
 ```
 
 | Expression                                 | Result                |
@@ -281,9 +281,9 @@ JSON, YAML, XML, and more. The following, with the help of the
 traversed just as easily as plain javascript objects:
 
 ```javascript
-const xml2json = require('xml2json')
+const xml2json = require("xml2json");
 
-jexl.addTransform('xml', (val) => xml2json.toJson(val, { object: true }))
+jexl.addTransform("xml", (val) => xml2json.toJson(val, { object: true }));
 
 const context = {
   xmlDoc: `
@@ -297,11 +297,11 @@ const context = {
         <LastName>Figgis</LastName>
       </Employee>
     </Employees>`
-}
+};
 
-var expr = 'xmlDoc|xml.Employees.Employee[.LastName == "Figgis"].FirstName'
+var expr = 'xmlDoc|xml.Employees.Employee[.LastName == "Figgis"].FirstName';
 
-jexl.eval(expr, context).then(console.log) // Output: Cyril
+jexl.eval(expr, context).then(console.log); // Output: Cyril
 ```
 
 ### Functions
@@ -314,8 +314,8 @@ multiple equally-important inputs. They can be added with
 value, or a Promise that resolves to the resulting value.
 
 ```javascript
-jexl.addFunction('min', Math.min)
-jexl.addFunction('expensiveQuery', async () => db.runExpensiveQuery())
+jexl.addFunction("min", Math.min);
+jexl.addFunction("expensiveQuery", async () => db.runExpensiveQuery());
 ```
 
 | Expression                                    | Result                    |
@@ -417,19 +417,19 @@ is optional.
 A convenient bit of syntactic sugar for `jexl.createExpression`
 
 ```javascript
-const someNumber = 10
-const expression = jexl.expr`5 + ${someNumber}`
-console.log(expression.evalSync()) // 15
+const someNumber = 10;
+const expression = jexl.expr`5 + ${someNumber}`;
+console.log(expression.evalSync()); // 15
 ```
 
 Note that `expr` will stay bound to its associated Jexl instance even if it's
 pulled out of context:
 
 ```javascript
-const { expr } = jexl
-jexl.addTransform('double', (val) => val * 2)
-const expression = expr`2|double`
-console.log(expression.evalSync()) // 4
+const { expr } = jexl;
+jexl.addTransform("double", (val) => val * 2);
+const expression = expr`2|double`;
+console.log(expression.evalSync()); // 4
 ```
 
 #### jexl.removeOp(_{string} operator_)
