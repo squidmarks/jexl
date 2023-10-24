@@ -48,7 +48,8 @@ Full Change Log
 - Forked from TomFrost/Jexl
 - Quoted identifiers can now be used as object properties.
 
-[devel]: https://github.com/firehammersolutions/jexl/compare/v1.2.0...HEAD
+[devel]: https://github.com/firehammersolutions/jexl/compare/v1.3.0...HEAD
+[v1.3.0]: https://github.com/firehammersolutions/jexl/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/firehammersolutions/jexl/compare/v1.1.0...v1.2.0
 [v1.1.1]: https://github.com/firehammersolutions/jexl/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/firehammersolutions/jexl/compare/v1.0.0...v1.1.0
