@@ -1,4 +1,6 @@
 Copyright (c) 2020 Tom Shawver
+Chetan Padia (c) 2022 Chetan Padia
+Copyright (c) 2023 Aaron Stephens
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
